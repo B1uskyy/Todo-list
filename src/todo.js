@@ -1,5 +1,7 @@
 
 let taskList = [];
+const content = document.querySelector(".content");
+
 
 class Task {
     constructor(title, description, dueDate, priority) {
@@ -32,8 +34,9 @@ class Task {
 
 
 function todoPopup() {
-    const content = document.querySelector(".content");
     const todoDiv = document.createElement("div");
+    todoDiv.style.display = "none"
+    todoDiv.classList.add("todoDiv")
 
     let titleInput = document.createElement("input");
     let titleDesc = document.createElement("h3");
@@ -76,13 +79,38 @@ function todoPopup() {
         );
         console.log(newTask);
         taskList.push(newTask);
+        renderTasks();
+        todoDiv.style.display = "none";
 
     });
     console.log("-----------------")
     console.log(taskList)
 
-
+return todoDiv;
 
 }
 
-export {todoPopup};
+
+function renderTasks() {
+    let taskParentDiv = document.createElement("div");
+
+    taskList.forEach(task => {
+        let taskDiv = document.createElement("div")
+        // Create the html elements for the task
+        let checkbox = document.createElement("input")
+        checkbox.type = "checkbox";
+
+        let title = document.createElement("p");
+        title.innerText = task.title
+
+        taskDiv.appendChild(checkbox);
+        taskDiv.appendChild(title);
+
+
+        taskParentDiv.appendChild(taskDiv);
+    })
+
+    content.appendChild(taskParentDiv);
+}
+
+export {todoPopup, Task};
