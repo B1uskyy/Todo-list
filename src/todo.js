@@ -57,11 +57,26 @@ function todoPopup() {
     todoDiv.appendChild(dueDateDesc);
     todoDiv.appendChild(dueDateInput);
 
-    let priorityInput = document.createElement("input");
+    let prioritySelect = document.createElement("select");
     let priorityDesc = document.createElement("h3");
     priorityDesc.innerText = "Priority";
     todoDiv.appendChild(priorityDesc);
-    todoDiv.appendChild(priorityInput);
+    todoDiv.appendChild(prioritySelect);
+
+    let lowOption = document.createElement("option");
+    lowOption.value = "Low";
+    lowOption.text = "Low";
+    prioritySelect.appendChild(lowOption);
+
+    let mediumOption = document.createElement("option");
+    mediumOption.value = "Medium";
+    mediumOption.text = "Medium";
+    prioritySelect.appendChild(mediumOption);
+
+    let highOption = document.createElement("option");
+    highOption.value = "High";
+    highOption.text = "High";
+    prioritySelect.appendChild(highOption);
 
     let taskButton = document.createElement("button");
     taskButton.innerText = "Add task";

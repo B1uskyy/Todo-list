@@ -37,8 +37,25 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
     display: block;
+    margin-top: 10px;
 }
 
 .todoDiv button:hover {
     background-color: #0056b3;
+}
+
+.todoDiv select {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: calc(100% - 22px);
+    background-color: white;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+}
+
+.todoDiv select:focus {
+    border-color: #007bff;
+    outline: none;
 }
