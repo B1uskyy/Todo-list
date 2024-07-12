@@ -1,7 +1,11 @@
+import project from "./project";
 
 let taskList = [];
 const content = document.querySelector(".content");
 
+let projectList = []
+
+projectList.push(new project("default") );
 
 class Task {
     constructor(title, description, dueDate, priority) {
@@ -128,4 +132,4 @@ function renderTasks() {
     content.appendChild(taskParentDiv);
 }
 
-export {todoPopup, Task};
+export {todoPopup, Task, projectList};

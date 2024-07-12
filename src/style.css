@@ -59,3 +59,19 @@
     border-color: #007bff;
     outline: none;
 }
+
+.wrapper {
+    display: flex;
+}
+
+.projects {
+    width: 30vw;
+    outline: 1px dotted red;
+    height: 100vh;
+
+}
+
+.content {
+    outline: 1px dotted green;
+    height: 100vh;
+}
