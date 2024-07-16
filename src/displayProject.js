@@ -24,6 +24,11 @@ function renderProjects() {
 
     })
 
+    let newProjectButton = document.createElement("button");
+    newProjectButton.innerText = "+ Create new project"
+    newProjectButton.classList.add("project-button")
+    projectParentDiv.appendChild(newProjectButton)
+
     return projectParentDiv;
 }
 
