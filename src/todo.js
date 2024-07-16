@@ -8,11 +8,12 @@ let projectList = []
 projectList.push(new project("default") );
 
 class Task {
-    constructor(title, description, dueDate, priority) {
+    constructor(title, description, dueDate, priority, projectName) {
         this._title = title;
         this._description = description;
         this._dueDate = dueDate;
         this._priority = priority;
+        this._projectName = projectName;
     }
 
     get title() {
@@ -33,6 +34,10 @@ class Task {
 
     set dueDate(value) {
         this._dueDate = value;
+    }
+
+    get projectName() {
+        return this._projectName;
     }
 }
 
@@ -82,6 +87,20 @@ function todoPopup() {
     highOption.text = "High";
     prioritySelect.appendChild(highOption);
 
+    let projectSelect = document.createElement("select");
+    let projectDesc = document.createElement("h3");
+    projectDesc.innerText = "Project";
+    todoDiv.appendChild(projectDesc);
+    todoDiv.appendChild(projectSelect);
+
+    // Populate the projectSelect dropdown
+    projectList.forEach(project => {
+        let option = document.createElement("option");
+        option.value = project.name;
+        option.text = project.name;
+        projectSelect.appendChild(option);
+    });
+
     let taskButton = document.createElement("button");
     taskButton.innerText = "Add task";
     todoDiv.appendChild(taskButton);
@@ -89,12 +108,15 @@ function todoPopup() {
     content.appendChild(todoDiv);
 
 
+
+
     taskButton.addEventListener("click", () => {
         const newTask = new Task(
             titleInput.value,
             descInput.value,
             dueDateInput.value,
-            priorityInput.value
+            prioritySelect.value,
+            projectSelect.value
         );
         console.log(newTask);
         taskList.push(newTask);
