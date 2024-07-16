@@ -1,7 +1,9 @@
 import project from "./project";
 import {projectList} from "./todo";
+import renderProject from "./renderProject";
 
-let content = document.querySelector(".projects")
+let projects = document.querySelector(".projects")
+let content = document.querySelector(".content");
 
 function renderProjects() {
     const projectParentDiv = document.createElement("div");
@@ -10,10 +12,11 @@ function renderProjects() {
 
     projectList.forEach(project => {
         const projectDiv = document.createElement("div");
-        let projectName = document.createElement("h2");
+        let projectName = document.createElement("li");
+
+        projectName.addEventListener("click", () => renderProject(project));
 
         projectName.innerText = project.name;
-
         projectDiv.appendChild(projectName)
         projectParentDiv.appendChild(projectDiv);
 

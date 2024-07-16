@@ -120,7 +120,15 @@ function todoPopup() {
         );
         console.log(newTask);
         taskList.push(newTask);
-        renderTasks();
+        const projectName = projectSelect.value;
+
+        const project = projectList.find(p => p.name === projectName);
+        if (project) {
+            project.addTask(newTask);
+        } else {
+            console.error("Project not found");
+        }
+
         todoDiv.style.display = "none";
 
     });
